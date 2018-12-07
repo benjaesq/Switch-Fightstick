@@ -56,17 +56,19 @@ On the Arduino Micro, D0-D3 may be used, or pins 1, 3, or 4 (PORTB) on the ICSP 
 The image printed depends on `image.c` which is generated with `png2c.py` which takes a 320x120 .png image. `png2c.py` will pack the image to a linear 1bpp array. If the image is not already made up of only black and white pixels, it will be dithered.
 
 In order to run `png2c.py`, you need to [install Python](https://www.python.org/downloads/) (I use Python 2.7). Also, you need to have the [Python Imaging Library](https://pillow.readthedocs.io/en/3.0.0/installation.html) installed ([install pip](https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip) if you need to).
-Using the supplied sample image, splatoonpattern.png:
+##### Manually generating the image.c
+
+The make process generates the image.c from the image.png file but if you wish to manually manipulate it you can:
 
 ```
-$ python png2c.py splatoonpattern.png
+$ python png2c.py image.png
 ```
 Substitute your own .png image to generate the `image.c` file necessary to print. Just make sure your image is in the `Switch-Fightstick` directory.
 
 To generate an inverted colormap of the image:
 
 ```
-$ python png2c.py -i splatoonpattern.png
+$ python png2c.py -i image.png
 ```
 
 #### What the dither?

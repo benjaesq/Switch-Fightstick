@@ -40,3 +40,9 @@ include $(LUFA_PATH)/Build/lufa_atprogram.mk
 # Target for LED/buzzer to alert when print is done
 with-alert: all
 with-alert: CC_FLAGS += -DALERT_WHEN_DONE
+
+image.c: image.png
+	python2 png2c.py image.png
+
+image.png:
+	$(error ERROR: you need an image called image.png for printing)
